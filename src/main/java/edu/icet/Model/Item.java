@@ -1,27 +1,25 @@
-package edu.icet.ecom.entity;
+package edu.icet.Model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Data
 @ToString
-@Entity
-public class item {
-    @Id
+
+public class Item {
+
     String itemNo;
     String itemType;
     String name;
     Double price;
     String imageUrl;
 
-    public item() {
+    public Item() {
     }
 
-    public item(String itemNo, String itemType, String name, Double price, String imageUrl) {
+    public Item(String itemNo, String itemType, String name, Double price, String imageUrl) {
         this.itemNo = itemNo;
         this.itemType = itemType;
         this.name = name;

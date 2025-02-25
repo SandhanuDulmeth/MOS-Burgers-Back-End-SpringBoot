@@ -1,4 +1,4 @@
-package edu.icet.ecom.db;
+package edu.icet.db;
 
 
 import lombok.Getter;
