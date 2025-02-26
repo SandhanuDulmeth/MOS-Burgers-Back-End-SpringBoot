@@ -30,11 +30,11 @@ public class ItemRepositoryImpl implements ItemRepository {
                         resultSet.getDouble(4),
                         resultSet.getString(5)
                 ));
-                return itemEntities;
             }
+            return itemEntities.isEmpty() ? null : itemEntities;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return null;
+
     }
 }

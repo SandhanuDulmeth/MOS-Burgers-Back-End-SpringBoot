@@ -21,7 +21,7 @@ public class ItemController {
 
     @GetMapping("/get-Items")
     public ArrayList<Item> getItem() {
-        ;
+
         return itemservice.getItem();}
 
 
