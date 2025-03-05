@@ -3,20 +3,13 @@ package edu.icet.repository.custom.impl;
 import edu.icet.entity.ItemEntity;
 import edu.icet.repository.custom.ItemRepository;
 import edu.icet.util.CrudUtil;
+import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
+@Repository
 public class ItemRepositoryImpl implements ItemRepository {
-//    String itemNo;
-//    String itemType;
-//    String name;
-//    Double price;
-//    String imageUrl;
-
-
-
 
     @Override
     public ArrayList<ItemEntity> gettAll() {

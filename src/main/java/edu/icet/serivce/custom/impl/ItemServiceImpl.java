@@ -25,7 +25,7 @@ public class ItemServiceImpl implements Itemservice {
     @Override
     public ArrayList<Item> getItem() {
 
-        ArrayList<Item> items = new ArrayList<>();
+                ArrayList<Item> items = new ArrayList<>();
         itemRepository.gettAll().forEach(itemEntity -> items.add(mapper.map(itemEntity, Item.class)));
         return items;
     }

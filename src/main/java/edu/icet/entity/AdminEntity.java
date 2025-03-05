@@ -1,7 +1,5 @@
 package edu.icet.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,13 +9,9 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class ItemEntity {
-
-    String itemNo;
-    String itemType;
-    String name;
-    Double price;
-    String imageUrl;
+public class AdminEntity {
+    String Email;
+    String Password;
 
 
 }

@@ -1,6 +1,8 @@
 package edu.icet.config;
 
+import edu.icet.repository.custom.AdminRepository;
 import edu.icet.repository.custom.ItemRepository;
+import edu.icet.repository.custom.impl.AdminRepositoryImpl;
 import edu.icet.repository.custom.impl.ItemRepositoryImpl;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
@@ -13,10 +15,6 @@ public class config {
         return new ModelMapper();
     }
 
-    @Bean
-    public ItemRepository getItemRepository(){
-        return new ItemRepositoryImpl();
 
-    }
 
 }
