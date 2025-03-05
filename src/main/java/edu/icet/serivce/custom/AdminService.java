@@ -1,6 +1,6 @@
 package edu.icet.serivce.custom;
 
-public interface AdminServiceImpl {
+public interface AdminService {
     String getPassword(String email);
 
 }

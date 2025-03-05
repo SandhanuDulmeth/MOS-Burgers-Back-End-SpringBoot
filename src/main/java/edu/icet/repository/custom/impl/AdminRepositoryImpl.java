@@ -18,12 +18,14 @@ public class AdminRepositoryImpl implements AdminRepository {
     @Override
     public String getPassword(String email) {
         try {
-             ResultSet resultSet= CrudUtil.execute("SELECT PASSWORD * ADMIN WHERE EMAIL = ?",email);
-             resultSet.next();
-             return resultSet.getString(1);
-
+            ResultSet resultSet = CrudUtil.execute("SELECT PASSWORD FROM ADMIN WHERE EMAIL = ?;", email);
+            if (resultSet.next()) {
+                return resultSet.getString(1);
+            }
+            return null;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
+
 }
