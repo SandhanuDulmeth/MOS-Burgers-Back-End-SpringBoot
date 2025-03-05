@@ -21,10 +21,10 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class ForgetPasswordServiceImpl implements ForgetPasswordSerivce {
 
-    // In-memory OTP storage; for production use a persistent store or cache with TTL.
+
     private final Map<String, String> otpStorage = new ConcurrentHashMap<>();
 
-    // Inject your user repository (or service) to update the password.
+
     private final AdminRepository userRepository;
 
     public boolean sendOtp(String email) {
@@ -38,14 +38,14 @@ public class ForgetPasswordServiceImpl implements ForgetPasswordSerivce {
     }
 
     private boolean sendEmail(String recipientEmail, String otp) {
-        // Email server configuration
+
         Properties properties = new Properties();
         properties.put("mail.smtp.auth", "true");
         properties.put("mail.smtp.starttls.enable", "true");
         properties.put("mail.smtp.host", "smtp.gmail.com");
         properties.put("mail.smtp.port", "587");
 
-        // Replace these with your actual email and app password (or use environment variables)
+
         String myEmail = "your-email@gmail.com";
         String password = "your-app-specific-password";
 
@@ -83,13 +83,13 @@ public class ForgetPasswordServiceImpl implements ForgetPasswordSerivce {
     public boolean resetPassword(String email, String otp, String newPassword) {
         String storedOtp = otpStorage.get(email);
         if (storedOtp != null && storedOtp.equals(otp)) {
-            // OTP is correct; update the user's password
+
             Admin user = userRepository.findByEmail(email);
             if (user != null) {
-                // Update the password (ensure to hash it in a real-world application)
+
                 user.setPassword(newPassword);
                 userRepository.save(user);
-                // Clear the stored OTP after successful reset
+
                 otpStorage.remove(email);
                 return true;
             }

@@ -17,14 +17,14 @@ public class AdminRepositoryImpl implements AdminRepository {
     public ArrayList<AdminEntity> gettAll() {
         ArrayList<AdminEntity> adminEntities = new ArrayList<>();
         try {
-            // Execute query to retrieve all admin records
+
             ResultSet resultSet = CrudUtil.execute("SELECT * FROM ADMIN;");
             while (resultSet.next()) {
                 AdminEntity adminEntity = new AdminEntity();
                 adminEntity.setId(String.valueOf(resultSet.getInt("ID")));
                 adminEntity.setEmail(resultSet.getString("EMAIL"));
                 adminEntity.setPassword(resultSet.getString("PASSWORD"));
-                // Add mapping for additional columns if needed
+
                 adminEntities.add(adminEntity);
             }
         } catch (SQLException e) {
@@ -55,7 +55,7 @@ public class AdminRepositoryImpl implements AdminRepository {
                 admin.setId(String.valueOf(resultSet.getInt("ID")));
                 admin.setEmail(resultSet.getString("EMAIL"));
                 admin.setPassword(resultSet.getString("PASSWORD"));
-                // Set additional fields if necessary
+
                 return admin;
             }
             return null;
@@ -67,7 +67,7 @@ public class AdminRepositoryImpl implements AdminRepository {
     @Override
     public void save(Admin admin) {
         try {
-            // Update existing admin's password
+
             CrudUtil.execute("UPDATE ADMIN SET PASSWORD = ? WHERE EMAIL = ?;",
                     admin.getPassword(), admin.getEmail());
         } catch (SQLException e) {
