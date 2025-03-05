@@ -10,6 +10,8 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AdminEntity {
+
+    String id;
     String Email;
     String Password;
 

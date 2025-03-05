@@ -9,9 +9,8 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class Admin {
-    String id;
-    String Email;
-    String Password;
-
+public class ResetPasswordRequest {
+    private String email;
+    private String otp;
+    private String newPassword;
 }
