@@ -82,6 +82,7 @@ public class ForgetPasswordServiceImpl implements ForgetPasswordSerivce {
 
     public boolean resetPassword(String email, String otp, String newPassword) {
         String storedOtp = otpStorage.get(email);
+
         if (storedOtp != null && storedOtp.equals(otp)) {
 
             Admin user = userRepository.findByEmail(email);
