@@ -15,7 +15,7 @@ public class DBConnection {
     private final Connection connection;
 
     private DBConnection() throws SQLException {
-        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/inventory_system", "root", "1234");
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mosburger", "root", "1234");
     }
 
     public static DBConnection getInstance() throws SQLException {
