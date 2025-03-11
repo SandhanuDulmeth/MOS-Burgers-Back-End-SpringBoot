@@ -36,4 +36,9 @@ public class ItemServiceImpl implements Itemservice {
         return itemRepository.delete(itemId);
 
     }
+
+    @Override
+    public boolean updateItem(Item item) {
+      return itemRepository.update(mapper.map(item, ItemEntity.class));
+    }
 }

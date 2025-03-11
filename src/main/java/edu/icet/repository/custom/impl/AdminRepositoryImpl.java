@@ -39,6 +39,11 @@ public class AdminRepositoryImpl implements AdminRepository {
     }
 
     @Override
+    public boolean update(AdminEntity entity) {
+        return false;
+    }
+
+    @Override
     public String getPassword(String email) {
         try {
             ResultSet resultSet = CrudUtil.execute("SELECT PASSWORD FROM ADMIN WHERE EMAIL = ?;", email);

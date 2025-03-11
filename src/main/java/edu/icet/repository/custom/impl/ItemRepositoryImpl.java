@@ -14,8 +14,8 @@ public class ItemRepositoryImpl implements ItemRepository {
     @Override
     public boolean delete(String id) {
         try {
-           ResultSet resultSet= CrudUtil.execute("DELETE FROM item WHERE itemno = ?;", id);
-            return resultSet.next();
+           return CrudUtil.execute("DELETE FROM item WHERE itemno = ?;", id);
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -39,6 +39,22 @@ public class ItemRepositoryImpl implements ItemRepository {
             throw new RuntimeException(e);
         }
 
+    }
+
+    @Override
+    public boolean update(ItemEntity entity) {
+        try {
+            return CrudUtil.execute("UPDATE item SET itemtype = ?, name = ?, price = ?, imageUrl = ? WHERE itemno = ?;",
+                    entity.getItemType(),
+                    entity.getName(),
+                    entity.getPrice(),
+                    entity.getImageUrl(),
+                    entity.getItemNo()
+                    );
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

@@ -28,11 +28,20 @@ public class ItemController {
         }
     }
 
-    @PostMapping("/add-Items/{itemId}")
+    @DeleteMapping("/delete-Item/{itemId}")
     public ResponseEntity<String> addItem(@PathVariable String itemId) {
         if (itemservice.deleteItem(itemId)) {
             return ResponseEntity.ok("True");
         } else {
+            return ResponseEntity.badRequest().body("False");
+        }
+    }
+
+    @PatchMapping("/update-Item")
+    public ResponseEntity<String> updateItem(@RequestBody Item item){
+        if(itemservice.updateItem(item)){
+            return ResponseEntity.ok("True");
+        }else{
             return ResponseEntity.badRequest().body("False");
         }
     }

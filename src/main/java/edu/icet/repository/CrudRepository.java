@@ -12,8 +12,8 @@ public interface CrudRepository<T> extends SuperRepository {
 
     ArrayList<T> gettAll();
 
-//    boolean update(T entity);
-//
+    boolean update(T entity);
+
 //    T search(Id id);
 //
 //    Integer getNextId();
