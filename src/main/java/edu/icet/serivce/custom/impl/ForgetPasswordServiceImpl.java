@@ -46,10 +46,9 @@ public class ForgetPasswordServiceImpl implements ForgetPasswordSerivce {
         properties.put("mail.smtp.port", "587");
 
 
-//        String myEmail = "your-email@gmail.com";
-//        String password = "your-app-specific-password";
-        String myEmail = "bruno12mendis740cj30x@gmail.com";
-        String password = "yrkd xity mqmv hktk";
+        String myEmail = "your-email@gmail.com";
+        String password = "your-app-specific-password";
+
 
         Session session = Session.getInstance(properties, new Authenticator() {
             @Override
