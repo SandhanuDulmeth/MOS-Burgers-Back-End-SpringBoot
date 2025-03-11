@@ -1,6 +1,7 @@
 package edu.icet.serivce.custom.impl;
 
 import edu.icet.Model.Item;
+import edu.icet.entity.ItemEntity;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +29,11 @@ public class ItemServiceImpl implements Itemservice {
                 ArrayList<Item> items = new ArrayList<>();
         itemRepository.gettAll().forEach(itemEntity -> items.add(mapper.map(itemEntity, Item.class)));
         return items;
+    }
+
+    @Override
+    public boolean deleteItem(String itemId) {
+        return itemRepository.delete(itemId);
+
     }
 }

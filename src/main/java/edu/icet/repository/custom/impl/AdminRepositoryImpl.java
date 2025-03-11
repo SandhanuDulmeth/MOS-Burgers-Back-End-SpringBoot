@@ -14,6 +14,11 @@ import java.util.ArrayList;
 public class AdminRepositoryImpl implements AdminRepository {
 
     @Override
+    public boolean delete(String id) {
+        return false;
+    }
+
+    @Override
     public ArrayList<AdminEntity> gettAll() {
         ArrayList<AdminEntity> adminEntities = new ArrayList<>();
         try {

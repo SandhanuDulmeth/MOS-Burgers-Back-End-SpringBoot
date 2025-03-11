@@ -12,6 +12,16 @@ import java.util.ArrayList;
 public class ItemRepositoryImpl implements ItemRepository {
 
     @Override
+    public boolean delete(String id) {
+        try {
+           ResultSet resultSet= CrudUtil.execute("DELETE FROM item WHERE itemno = ?;", id);
+            return resultSet.next();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
     public ArrayList<ItemEntity> gettAll() {
         ArrayList<ItemEntity> itemEntities=new ArrayList<>();
         try {
@@ -30,4 +40,5 @@ public class ItemRepositoryImpl implements ItemRepository {
         }
 
     }
+
 }

@@ -6,4 +6,10 @@ import java.util.ArrayList;
 
 public interface Itemservice {
     ArrayList<Item> getItem() ;
+
+
+    boolean deleteItem(String itemID);
+
+
+
 }

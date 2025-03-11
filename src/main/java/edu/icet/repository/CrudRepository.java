@@ -1,5 +1,6 @@
 package edu.icet.repository;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 
@@ -7,7 +8,7 @@ public interface CrudRepository<T> extends SuperRepository {
 
 //    boolean save(T entity) throws SQLException;
 //
-//    boolean delete(Id id) throws SQLException;
+    boolean delete(String id) ;
 
     ArrayList<T> gettAll();
 
