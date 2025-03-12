@@ -12,4 +12,6 @@ public interface CustomerService {
 
 
     boolean updateCustomer(Customer customer);
+
+    boolean addCustomer(Customer customer);
 }

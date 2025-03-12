@@ -12,6 +12,11 @@ import java.util.ArrayList;
 public class ItemRepositoryImpl implements ItemRepository {
 
     @Override
+    public boolean save(ItemEntity entity) {
+        return false;
+    }
+
+    @Override
     public boolean delete(String id) {
         try {
            return CrudUtil.execute("DELETE FROM item WHERE itemno = ?;", id);

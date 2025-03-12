@@ -13,6 +13,22 @@ import java.util.ArrayList;
 @Repository
 public class customerRepositoryImpl implements CustomerRepository {
     @Override
+    public boolean save(CustomerEntity entity) {
+        try {
+            return CrudUtil.execute(
+                    "INSERT INTO customers (name, email, phone, address) VALUES (?, ?, ?, ?);",
+                    entity.getName(),
+                    entity.getEmail(),
+                    entity.getPhone(),
+                    entity.getAddress()
+            );
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    @Override
     public boolean delete(String id) {
         try {
             return CrudUtil.execute("DELETE FROM customers WHERE id = ?;", id);
@@ -46,11 +62,12 @@ public class customerRepositoryImpl implements CustomerRepository {
     @Override
     public boolean update(CustomerEntity entity) {
         try {
-            return CrudUtil.execute("UPDATE customers SET  name = ?, email = ?, phone = ? ,address= ? WHERE itemno = ?;",
-                    entity.getName(),
+            return CrudUtil.execute("UPDATE customers SET email = ?, name = ?, phone = ? ,address= ? WHERE id = ?;",
                     entity.getEmail(),
+                    entity.getName(),
                     entity.getPhone(),
-                    entity.getAddress()
+                    entity.getAddress(),
+                    entity.getId()
             );
 
         } catch (SQLException e) {

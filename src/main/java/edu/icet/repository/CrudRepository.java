@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public interface CrudRepository<T> extends SuperRepository {
 
-//    boolean save(T entity) throws SQLException;
+    boolean save(T entity) ;
 //
     boolean delete(String id) ;
 

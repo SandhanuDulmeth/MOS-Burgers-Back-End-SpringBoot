@@ -17,7 +17,7 @@ public class CustomerController {
     final CustomerService customerService;
 
     @GetMapping("/get-Customers")
-    public ResponseEntity<ArrayList<Customer>> getItem() {
+    public ResponseEntity<ArrayList<Customer>> getCustomer() {
         ArrayList<Customer> items = customerService.getCustomer();
         if (!items.isEmpty()) {
             return ResponseEntity.ok(items);
@@ -26,8 +26,17 @@ public class CustomerController {
         }
     }
 
+    @PostMapping("add-Customers")
+    public ResponseEntity<String> addCustomer(@RequestBody Customer customer){
+        if(customerService.addCustomer(customer)){
+            return ResponseEntity.ok("true");
+        }else{
+            return ResponseEntity.badRequest().body("false");
+        }
+    }
+
     @DeleteMapping("/delete-Customers/{itemId}")
-    public ResponseEntity<String> addItem(@PathVariable String itemId) {
+    public ResponseEntity<String> addCustomer(@PathVariable String itemId) {
         if (customerService.deleteCustomer(itemId)) {
             return ResponseEntity.ok("true");
         } else {
@@ -36,7 +45,8 @@ public class CustomerController {
     }
 
     @PatchMapping("/update-Customers")
-    public ResponseEntity<String> updateItem(@RequestBody Customer customer){
+    public ResponseEntity<String> updateCustomer(@RequestBody Customer customer){
+        System.out.println("this works");
         if(customerService.updateCustomer(customer)){
             return ResponseEntity.ok("true");
         }else{

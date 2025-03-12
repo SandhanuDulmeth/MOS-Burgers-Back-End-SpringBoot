@@ -36,4 +36,9 @@ public class CustomerSerivceImpl implements CustomerService {
     public boolean updateCustomer(Customer customer) {
         return customerRepository.update(mapper.map(customer, CustomerEntity.class));
     }
+
+    @Override
+    public boolean addCustomer(Customer customer) {
+        return customerRepository.save(mapper.map(customer, CustomerEntity.class));
+    }
 }
