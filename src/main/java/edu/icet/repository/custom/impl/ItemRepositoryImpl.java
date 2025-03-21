@@ -13,7 +13,13 @@ public class ItemRepositoryImpl implements ItemRepository {
 
     @Override
     public boolean save(ItemEntity entity) {
-        return false;
+        try {
+            return CrudUtil.execute("INSERT INTO item (itemno, itemtype, name, price, imageUrl) VALUES (?, ?, ?, ?, ?);",
+                    entity.getItemNo(), entity.getItemType(), entity.getName(), entity.getPrice(), entity.getImageUrl());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     @Override

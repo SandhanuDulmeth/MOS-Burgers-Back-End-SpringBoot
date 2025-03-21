@@ -18,6 +18,15 @@ public class ItemController {
 
     final Itemservice itemservice;
 
+    @PostMapping("/add-Item")
+    public ResponseEntity<String> addItem(@RequestBody Item item) {
+        if(itemservice.addItem(item)){
+            return ResponseEntity.ok("true");
+        }else{
+            return ResponseEntity.badRequest().body("false");
+        }
+    }
+
     @GetMapping("/get-Items")
     public ResponseEntity<ArrayList<Item>> getItem() {
         ArrayList<Item> items = itemservice.getItem();

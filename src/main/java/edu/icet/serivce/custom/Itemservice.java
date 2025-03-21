@@ -12,4 +12,6 @@ public interface Itemservice {
 
 
     boolean updateItem(Item item);
+
+    boolean addItem(Item item);
 }

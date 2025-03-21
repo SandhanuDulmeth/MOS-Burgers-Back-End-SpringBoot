@@ -49,7 +49,6 @@ public class ForgetPasswordServiceImpl implements ForgetPasswordSerivce {
         String myEmail = "your-email@gmail.com";
         String password = "your-app-specific-password";
 
-
         Session session = Session.getInstance(properties, new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {

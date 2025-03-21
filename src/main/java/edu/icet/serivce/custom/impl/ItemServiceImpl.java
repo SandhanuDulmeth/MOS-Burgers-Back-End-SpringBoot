@@ -41,4 +41,9 @@ public class ItemServiceImpl implements Itemservice {
     public boolean updateItem(Item item) {
       return itemRepository.update(mapper.map(item, ItemEntity.class));
     }
+
+    @Override
+    public boolean addItem(Item item) {
+       return itemRepository.save(mapper.map(item, ItemEntity.class));
+    }
 }
