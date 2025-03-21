@@ -1,6 +1,4 @@
-Certainly! Here's a basic structure for a README.md file for your Spring Boot project:
 
-markdown
 # MOS Burgers Back-End (Spring Boot)
 
 ## Table of Contents
