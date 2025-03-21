@@ -77,6 +77,6 @@ Contributions are welcome! Please create a pull request or open an issue for any
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Contact
-For any queries or support, please contact Sandhanu Dulmeth at [your-email@example.com].
+For any queries or support, please contact Sandhanu Dulmeth at [www.linkedin.com/in/sandhanu-mendis].
 ```
 
