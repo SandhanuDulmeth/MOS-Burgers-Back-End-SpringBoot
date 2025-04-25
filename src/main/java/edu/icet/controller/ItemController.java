@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import edu.icet.serivce.custom.Itemservice;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 @CrossOrigin
@@ -36,6 +38,17 @@ public class ItemController {
             return ResponseEntity.noContent().build();
         }
     }
+    @GetMapping("/get-Category")
+    public ResponseEntity<Map<String, Integer>> getCategory() {
+        ResponseEntity<Map<String, Integer>> response = itemservice.getCategory();
+        Map<String, Integer> categoryMap = response.getBody();
+
+        if (categoryMap == null || categoryMap.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.ok(categoryMap);
+        }
+    }
 
     @DeleteMapping("/delete-Item/{itemId}")
     public ResponseEntity<String> addItem(@PathVariable String itemId) {
@@ -54,6 +67,8 @@ public class ItemController {
             return ResponseEntity.badRequest().body("false");
         }
     }
+
+
 
 
 

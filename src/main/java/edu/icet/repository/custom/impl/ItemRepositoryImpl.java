@@ -3,11 +3,15 @@ package edu.icet.repository.custom.impl;
 import edu.icet.entity.ItemEntity;
 import edu.icet.repository.custom.ItemRepository;
 import edu.icet.util.CrudUtil;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 @Repository
 public class ItemRepositoryImpl implements ItemRepository {
 
@@ -68,4 +72,25 @@ public class ItemRepositoryImpl implements ItemRepository {
         }
     }
 
+    @Override
+    public ResponseEntity<Map<String, Integer>> getCategory() {
+        Map<String, Integer> categoryMap = new HashMap<>();
+        try {
+            // Execute the query and get the ResultSet
+            ResultSet resultSet = CrudUtil.execute("SELECT itemtype, COUNT(*) AS item_count FROM item GROUP BY itemtype");
+
+            // Iterate through the ResultSet and populate the map
+            while (resultSet.next()) {
+                String itemType = resultSet.getString("itemtype");
+                int count = resultSet.getInt("item_count");
+                categoryMap.put(itemType, count);
+            }
+
+            // Return the map wrapped in a ResponseEntity
+            return ResponseEntity.ok(categoryMap);
+        } catch (SQLException e) {
+            // Handle exceptions appropriately
+            throw new RuntimeException("Failed to fetch item categories", e);
+        }
+    }
 }

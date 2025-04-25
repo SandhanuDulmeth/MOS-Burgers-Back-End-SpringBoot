@@ -6,11 +6,13 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import edu.icet.repository.custom.ItemRepository;
 import edu.icet.serivce.custom.Itemservice;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 @Service
 @Primary
@@ -45,5 +47,10 @@ public class ItemServiceImpl implements Itemservice {
     @Override
     public boolean addItem(Item item) {
        return itemRepository.save(mapper.map(item, ItemEntity.class));
+    }
+
+    @Override
+    public ResponseEntity<Map<String, Integer>> getCategory() {
+        return itemRepository.getCategory();
     }
 }
