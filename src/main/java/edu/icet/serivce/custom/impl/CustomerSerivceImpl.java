@@ -23,7 +23,9 @@ public class CustomerSerivceImpl implements CustomerService {
     @Override
     public ArrayList<Customer> getCustomer() {
         ArrayList<Customer> customers = new ArrayList<>();
+        if(customerRepository.gettAll()!=null){
         customerRepository.gettAll().forEach(customerEntity  -> customers.add(mapper.map(customerEntity, Customer.class)));
+        }
         return customers;
     }
 
